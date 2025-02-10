@@ -38,28 +38,6 @@ namespace RestFull.Controllers
             } 
             return BadRequest();
         }
-
-        [HttpGet("feladat15")]
-        public async Task<ActionResult<Book>> GetById(int id)
-        {
-            var book = await bookInterface.GetBookById(id);
-            if (book != null)
-            {
-                return Ok(book);
-            }
-            return NotFound();
-        }
-
-        [HttpPut("feladat16")]
-        public async Task<ActionResult<Book>> Put(int id ,Book book)
-        {
-            var result = await bookInterface.Put(id, book);
-            if (result != null)
-            {
-                return Ok(book);
-            }
-            return NotFound();
-        }
         [HttpDelete("Delete")]
         public async Task<ActionResult<string>> Delete(int id)
         {
